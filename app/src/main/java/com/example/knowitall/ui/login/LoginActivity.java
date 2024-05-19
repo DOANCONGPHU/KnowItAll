@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.knowitall.R;
+import com.example.knowitall.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText email,pass;
@@ -31,22 +32,22 @@ public class LoginActivity extends AppCompatActivity {
     private TextView forgotPass, signUp;
 
     private LoginViewModel loginViewModel;
-    private ActivityLoginBinding binding;
+    private ActivityLoginBinding binding1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        binding1 = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding1.getRoot());
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.username;
-        final EditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
-        final ProgressBar loadingProgressBar = binding.loading;
+        final EditText usernameEditText = binding1.username;
+        final EditText passwordEditText = binding1.password;
+        final Button loginButton = binding1.login;
+        final ProgressBar loadingProgressBar = binding1.loading;
         signUp= findViewById(R.id.signUP);
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
