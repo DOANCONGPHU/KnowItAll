@@ -24,10 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.knowitall.R;
-import com.example.knowitall.SignUp;
-import com.example.knowitall.ui.login.LoginViewModel;
-import com.example.knowitall.ui.login.LoginViewModelFactory;
-import com.example.knowitall.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText email,pass;

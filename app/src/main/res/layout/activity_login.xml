@@ -58,7 +58,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
          />
-
     <EditText
         android:id="@+id/password"
         android:layout_width="384dp"
@@ -85,7 +84,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/round_conner_button"
-        android:enabled="true"
         android:text="Đăng Nhập"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

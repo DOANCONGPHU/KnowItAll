@@ -1,4 +1,4 @@
-package com.example.knowitall;
+package com.example.knowitall.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.knowitall.ui.login.LoginActivity;
+import com.example.knowitall.R;
 
 public class SignUp extends AppCompatActivity {
     private ImageView back;
