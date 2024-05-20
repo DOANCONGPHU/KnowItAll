@@ -1,10 +1,8 @@
 package com.example.knowitall;
 
-import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -16,7 +14,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.knowitall.data.model.LoggedInUser;
 import com.example.knowitall.ui.login.LoginActivity;
 
 public class Splash extends AppCompatActivity {

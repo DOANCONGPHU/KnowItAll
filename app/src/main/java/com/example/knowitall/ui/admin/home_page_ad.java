@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -23,7 +24,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.knowitall.R;
 import com.example.knowitall.data.model.TopicModel;
 import com.example.knowitall.databinding.ActivityHomePageAdBinding;
-import com.example.knowitall.databinding.ActivityMainBinding;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -32,6 +33,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.Date;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -61,7 +63,7 @@ public class home_page_ad extends AppCompatActivity {
         });
         binding = ActivityHomePageAdBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
@@ -131,7 +133,7 @@ public class home_page_ad extends AppCompatActivity {
                         TopicModel topicModel= new TopicModel();
                         topicModel.setTopicName(topicName.getText().toString());
                         topicModel.setSetNum(0);
-                        topicModel.setTopicImage(imageUri.toString());
+                        topicModel.setTopicImage(uri.toString());
 
                         database.getReference().child("topics").child("topic" + i++).setValue(topicModel)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -153,6 +155,7 @@ public class home_page_ad extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
