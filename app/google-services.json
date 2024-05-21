@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687585195873",
+    "project_id": "knowitall-7ae11",
+    "storage_bucket": "knowitall-7ae11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687585195873:android:7d6c44b53f3aeeb6b33720",
+        "android_client_info": {
+          "package_name": "com.example.knowitall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZx5Fp3oAOe9nc1oIf2alsuGz_6m0xsP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
