@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding1;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
-//    ProgressDialog progressDialog;
+    ProgressDialog progressDialog;
     AlertDialog.Builder alertDialog;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,14 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding1.getRoot());
         firebaseAuth= FirebaseAuth.getInstance();
         firebaseDatabase= FirebaseDatabase.getInstance();
-//        progressDialog= new ProgressDialog(LoginActivity.this);
-//        progressDialog.setTitle("Đang tạo tài khoản");
-//        progressDialog.setMessage("setmetsage loi");
 
-
-
-
-        final ProgressBar loadingProgressBar = binding1.loading;
 
         binding1.signUP.setOnClickListener(new View.OnClickListener() {
             @Override
