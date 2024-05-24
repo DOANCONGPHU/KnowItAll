@@ -10,4 +10,7 @@
     <color name="light_yellow"> #eae4cd</color>
     <color name="primary">#2050bc</color>
     <color name="light_grey">#808080</color>
+    <color name="pink">#FF4B6D</color>
+    <color name="pink_q">#FFC9D3</color>
+    <color name="pink_p">#FFDBe2</color>
 </resources>
