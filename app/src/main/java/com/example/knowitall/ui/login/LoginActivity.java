@@ -71,12 +71,14 @@ public class LoginActivity extends AppCompatActivity {
         binding1.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding1.btnLogin.setVisibility(View.GONE);
-                showProgressBar();
-
                 String email = binding1.userEmail.getText().toString().trim();
                 String password = binding1.password.getText().toString().trim();
-
+                if (password.isEmpty()  ||  email.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                binding1.btnLogin.setVisibility(View.GONE);
+                showProgressBar();
                 firebaseAuth.signInWithEmailAndPassword(binding1.userEmail.getText().toString(),binding1.password.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -99,7 +101,9 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 else {
                                     // Trả về lỗi
-                                    Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Thông tin tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
+                                    hideProgressBar();
+                                    binding1.btnLogin.setVisibility(View.VISIBLE);
                                 }
                             }
                         });
