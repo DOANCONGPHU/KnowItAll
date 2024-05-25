@@ -71,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         binding1.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding1.btnLogin.setVisibility(View.GONE);
+                showProgressBar();
 
                 String email = binding1.userEmail.getText().toString().trim();
                 String password = binding1.password.getText().toString().trim();
@@ -83,13 +85,13 @@ public class LoginActivity extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     if (email.equals("admin@gmail.com") && password.equals("congphu01")) {
                                         // Chuyển hướng đến home_page_ad
-
+                                        hander();
                                         Intent intent = new Intent(LoginActivity.this, home_page_ad.class);
                                         startActivity(intent);
                                         finish();
                                     }else{
                                         // Chuyển hướng đến Main
-
+                                        hander();
                                         Intent intent= new Intent(LoginActivity.this,MainActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -109,24 +111,24 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-//    private void hander() {
-//        new Handler().postDelayed(() -> {
-//            // Ẩn Lottie Animation sau khi xử lý xong
-//            hideProgressBar();
-//            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-//        }, 3000);
-//    }
-//
-//    private void showProgressBar() {
-//        progressBar.setVisibility(View.VISIBLE);
-//        progressBar.playAnimation();
-//        btnLogin.setEnabled(false); // Vô hiệu hóa nút khi đang tải
-//    }
-//
-//    private void hideProgressBar() {
-//        progressBar.cancelAnimation();
-//        progressBar.setVisibility(View.GONE);
-//        btnLogin.setEnabled(true); // Kích hoạt lại nút sau khi tải xong
-//    }
+    private void hander() {
+        new Handler().postDelayed(() -> {
+            // Ẩn Lottie Animation sau khi xử lý xong
+            hideProgressBar();
+            binding1.btnLogin.setVisibility(View.VISIBLE);
+            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+        }, 3000);
+    }
+
+    private void showProgressBar() {
+        binding1.animationView.setVisibility(View.VISIBLE);
+        binding1.animationView.playAnimation();
+
+    }
+
+    private void hideProgressBar() {
+        binding1.animationView.cancelAnimation();
+        binding1.animationView.setVisibility(View.GONE);
+    }
 
 }

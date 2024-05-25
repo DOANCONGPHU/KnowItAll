@@ -5,11 +5,11 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_splash"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/gradient_background"
     tools:context=".ui.login.LoginActivity">
 
     <LinearLayout
@@ -57,16 +57,16 @@
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/password"
         android:layout_width="384dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="16dp"
         android:hint="Mật Khẩu"
-        android:drawableLeft="@drawable/ic_lock"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -114,8 +114,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Quên Mật Khẩu ?"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
@@ -149,10 +149,10 @@
         android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705"
+        app:layout_constraintVertical_bias="0.755"
         app:lottie_autoPlay="true"
         app:lottie_fileName="Animation_loading.json"
         app:lottie_loop="true" />
