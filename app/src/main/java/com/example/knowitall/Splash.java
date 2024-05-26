@@ -14,6 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.knowitall.ui.admin.home_page_ad;
 import com.example.knowitall.ui.login.LoginActivity;
 
 public class Splash extends AppCompatActivity {
@@ -42,7 +43,7 @@ public class Splash extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Intent intent = new Intent(Splash.this, LoginActivity.class);
+                Intent intent = new Intent(Splash.this, home_page_ad.class);
                 startActivity(intent);
                 Splash.this.finish();
             }

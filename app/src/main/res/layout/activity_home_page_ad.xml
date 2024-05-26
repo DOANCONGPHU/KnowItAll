@@ -12,7 +12,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/pink"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +41,7 @@
         app:srcCompat="@drawable/plus" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_topic"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

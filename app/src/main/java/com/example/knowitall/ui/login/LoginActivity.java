@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
             hideProgressBar();
             binding1.btnLogin.setVisibility(View.VISIBLE);
             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-        }, 3000);
+        }, 2000);
     }
 
     private void showProgressBar() {

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.util.Log;
 
@@ -20,18 +21,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.knowitall.Adapter.TopicAdapter;
 import com.example.knowitall.R;
 import com.example.knowitall.data.model.TopicModel;
 import com.example.knowitall.databinding.ActivityHomePageAdBinding;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -51,6 +58,9 @@ public class home_page_ad extends AppCompatActivity {
     int i=0;
     ProgressDialog progressDialog;
 
+    ArrayList<TopicModel> list;
+    TopicAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +77,9 @@ public class home_page_ad extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
+        list = new ArrayList<>();
+
+
         dialog= new Dialog( this);
         dialog.setContentView(R.layout.add_item_topic);
 
@@ -77,13 +90,39 @@ public class home_page_ad extends AppCompatActivity {
 
         progressDialog= new ProgressDialog(this);
         progressDialog.setTitle("Đang tải lên");
-        progressDialog.setMessage("dang tai");
+        progressDialog.setMessage("Loading");
 
         topicUpload = dialog.findViewById(R.id.btn_upload_topic);
         topicName = dialog.findViewById(R.id.input_topic);
         topicImage = dialog.findViewById(R.id.image_topic);
-
         fetchImage = dialog.findViewById(R.id.fetchImage);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        binding.recyclerTopic.setLayoutManager(layoutManager);
+
+        adapter = new TopicAdapter(this,list);
+        binding.recyclerTopic.setAdapter(adapter);
+        database.getReference().child("topics").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    list.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                        TopicModel topicModel = dataSnapshot.getValue(TopicModel.class);
+                        list.add(topicModel);
+                    }
+                    adapter.notifyDataSetChanged();
+                    binding.recyclerTopic.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(home_page_ad.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
         binding.addTopic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +153,7 @@ public class home_page_ad extends AppCompatActivity {
                 }else {
                     progressDialog.show();
                     uploadData();
+                    dialog.dismiss();
                 }
 
             }
@@ -122,7 +162,7 @@ public class home_page_ad extends AppCompatActivity {
     }
 
     private void uploadData() {
-        final StorageReference reference = storage.getReference().child("topic").child( new Date().getTime()+"");
+        final StorageReference reference = storage.getReference().child("topic").child( new Date().getTime()+" ");
         reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -135,7 +175,7 @@ public class home_page_ad extends AppCompatActivity {
                         topicModel.setSetNum(0);
                         topicModel.setTopicImage(uri.toString());
 
-                        database.getReference().child("topics").child("topic" + i++).setValue(topicModel)
+                        database.getReference().child("topics").push().setValue(topicModel)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
