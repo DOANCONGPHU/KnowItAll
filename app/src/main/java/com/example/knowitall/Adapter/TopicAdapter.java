@@ -1,6 +1,9 @@
 package com.example.knowitall.Adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.knowitall.R;
 import com.example.knowitall.data.model.TopicModel;
 import com.example.knowitall.databinding.ItemTopicBinding;
+import com.example.knowitall.ui.admin.SetActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,6 +46,18 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.viewHolder> 
                 .placeholder(R.drawable.logo2_app) // Hình ảnh mặc định khi tải
                 .error(R.drawable.ic_menu_gallery) // Hình ảnh hiển thị khi lỗi
                 .into(holder.binding.imageTopic); // ImageView mà hình ảnh sẽ được hiển thị
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(context, SetActivity.class);
+                intent.putExtra("topic",model.getTopicName());
+                intent.putExtra("sets",model.getSetNum());
+                intent.putExtra("key",model.getKey());
+
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override

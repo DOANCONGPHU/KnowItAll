@@ -1,38 +1,21 @@
 package com.example.knowitall.ui.login;
 
-import android.app.Activity;
-
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.knowitall.MainActivity;
-import com.example.knowitall.R;
 import com.example.knowitall.databinding.ActivityLoginBinding;
-import com.example.knowitall.ui.admin.home_page_ad;
+import com.example.knowitall.ui.admin.HomePageAdmin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -88,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (email.equals("admin@gmail.com") && password.equals("congphu01")) {
                                         // Chuyển hướng đến home_page_ad
                                         hander();
-                                        Intent intent = new Intent(LoginActivity.this, home_page_ad.class);
+                                        Intent intent = new Intent(LoginActivity.this, HomePageAdmin.class);
                                         startActivity(intent);
                                         finish();
                                     }else{

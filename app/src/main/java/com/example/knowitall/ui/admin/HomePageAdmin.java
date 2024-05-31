@@ -10,9 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -44,7 +42,7 @@ import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class home_page_ad extends AppCompatActivity {
+public class HomePageAdmin extends AppCompatActivity {
     ActivityHomePageAdBinding binding;
     FirebaseDatabase database;
     FirebaseStorage storage;
@@ -102,14 +100,19 @@ public class home_page_ad extends AppCompatActivity {
 
         adapter = new TopicAdapter(this,list);
         binding.recyclerTopic.setAdapter(adapter);
+
         database.getReference().child("topics").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     list.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        TopicModel topicModel = dataSnapshot.getValue(TopicModel.class);
-                        list.add(topicModel);
+                        list.add(new TopicModel(
+                                dataSnapshot.child("topicName").getValue().toString(),
+                                dataSnapshot.child("topicImage").getValue().toString(),
+                                dataSnapshot.getKey(),
+                                Integer.parseInt(dataSnapshot.child("setNum").getValue().toString())
+                        ));
                     }
                     adapter.notifyDataSetChanged();
                     binding.recyclerTopic.setAdapter(adapter);
@@ -118,7 +121,7 @@ public class home_page_ad extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(home_page_ad.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomePageAdmin.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -146,7 +149,7 @@ public class home_page_ad extends AppCompatActivity {
             public void onClick(View view) {
                 String name = topicName.getText().toString();
                 if(imageUri==null){
-                    Toast.makeText(home_page_ad.this,"Hãy thêm ảnh", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomePageAdmin.this,"Hãy thêm ảnh", Toast.LENGTH_SHORT).show();
                 } else if (name.isEmpty()) {
                     topicName.setError("Nhập tên topic");
                     
@@ -160,7 +163,7 @@ public class home_page_ad extends AppCompatActivity {
         });
 
     }
-
+    // đẩy dữ liệu lên firebase
     private void uploadData() {
         final StorageReference reference = storage.getReference().child("topic").child( new Date().getTime()+" ");
         reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -175,17 +178,17 @@ public class home_page_ad extends AppCompatActivity {
                         topicModel.setSetNum(0);
                         topicModel.setTopicImage(uri.toString());
 
-                        database.getReference().child("topics").push().setValue(topicModel)
+                        database.getReference().child("topics").child("topic" + i++).setValue(topicModel)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(home_page_ad.this,"Đã tải lên", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(HomePageAdmin.this,"Đã tải lên", Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(home_page_ad.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(HomePageAdmin.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
                                     }
                                 });
