@@ -80,7 +80,7 @@ public class HomePageAdmin extends AppCompatActivity {
 
         dialog= new Dialog( this);
         dialog.setContentView(R.layout.add_item_topic);
-
+        // dialog transparent
         if(dialog.getWindow() != null){
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             dialog.setCancelable(true);
@@ -94,18 +94,18 @@ public class HomePageAdmin extends AppCompatActivity {
         topicName = dialog.findViewById(R.id.input_topic);
         topicImage = dialog.findViewById(R.id.image_topic);
         fetchImage = dialog.findViewById(R.id.fetchImage);
-
+        // set layout
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.recyclerTopic.setLayoutManager(layoutManager);
-
         adapter = new TopicAdapter(this,list);
         binding.recyclerTopic.setAdapter(adapter);
-
+        // lấy dữ liệu từ firebase
         database.getReference().child("topics").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     list.clear();
+                    // lấy dữ liệu
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                         list.add(new TopicModel(
                                 dataSnapshot.child("topicName").getValue().toString(),
@@ -114,11 +114,12 @@ public class HomePageAdmin extends AppCompatActivity {
                                 Integer.parseInt(dataSnapshot.child("setNum").getValue().toString())
                         ));
                     }
+                    // cập nhật
                     adapter.notifyDataSetChanged();
                     binding.recyclerTopic.setAdapter(adapter);
                 }
             }
-
+            // nếu có lỗi
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HomePageAdmin.this, error.getMessage(), Toast.LENGTH_SHORT).show();
@@ -126,7 +127,7 @@ public class HomePageAdmin extends AppCompatActivity {
         });
 
 
-
+        // click
         binding.addTopic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,6 +135,7 @@ public class HomePageAdmin extends AppCompatActivity {
 
             }
         });
+        // lấy ảnh
         fetchImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,7 +145,7 @@ public class HomePageAdmin extends AppCompatActivity {
                 startActivityForResult(intent,1);
             }
         });
-
+        // upload
         topicUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,15 +171,16 @@ public class HomePageAdmin extends AppCompatActivity {
         reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+                // lấy url
                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        // đẩy dữ liệu lên firebase
                         TopicModel topicModel= new TopicModel();
                         topicModel.setTopicName(topicName.getText().toString());
                         topicModel.setSetNum(0);
                         topicModel.setTopicImage(uri.toString());
-
+                        // đẩy lên firebase
                         database.getReference().child("topics").child("topic" + i++).setValue(topicModel)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -199,7 +202,7 @@ public class HomePageAdmin extends AppCompatActivity {
         });
     }
 
-
+    // lấy ảnh
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

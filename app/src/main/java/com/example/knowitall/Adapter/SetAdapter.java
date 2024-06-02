@@ -1,5 +1,6 @@
 package com.example.knowitall.Adapter;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.knowitall.R;
+import com.example.knowitall.ui.admin.Question;
 
 public class SetAdapter extends BaseAdapter {
     public int sets=0;
@@ -68,7 +70,10 @@ public class SetAdapter extends BaseAdapter {
             if (currentPosition == 0) {
                 gridListener.addSet();
             } else {
-                Toast.makeText(parent.getContext(), "wait", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(parent.getContext(), Question.class);
+                intent.putExtra("setNum", position);
+                intent.putExtra("topicName", topic);
+                parent.getContext().startActivity(intent);
 
             }
         });

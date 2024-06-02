@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.knowitall.MainActivity;
+import com.example.knowitall.HomePage;
 import com.example.knowitall.databinding.ActivityLoginBinding;
 import com.example.knowitall.ui.admin.HomePageAdmin;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                                     }else{
                                         // Chuyển hướng đến Main
                                         hander();
-                                        Intent intent= new Intent(LoginActivity.this,MainActivity.class);
+                                        Intent intent= new Intent(LoginActivity.this, HomePage.class);
                                         startActivity(intent);
                                         finish();
                                     }

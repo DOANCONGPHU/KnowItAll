@@ -26,6 +26,7 @@
         android:text="CÂU HỎI &amp; ĐỀ"
         android:textSize="30sp"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/toolbar3"

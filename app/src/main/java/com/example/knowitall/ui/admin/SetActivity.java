@@ -47,7 +47,7 @@ public class SetActivity extends AppCompatActivity {
                                     adapter.sets++;
                                     adapter.notifyDataSetChanged();
                                 }else {
-                                    Toast.makeText(SetActivity.this, "Lối gì đó, đéo biết", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SetActivity.this, "Lối gì đó", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });;
