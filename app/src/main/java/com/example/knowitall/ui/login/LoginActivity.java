@@ -1,36 +1,21 @@
 package com.example.knowitall.ui.login;
 
-import android.app.Activity;
-
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
+import android.os.Handler;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.knowitall.MainActivity;
-import com.example.knowitall.R;
+import com.airbnb.lottie.LottieAnimationView;
+import com.example.knowitall.HomePage;
 import com.example.knowitall.databinding.ActivityLoginBinding;
-import com.example.knowitall.ui.admin.home_page_ad;
+import com.example.knowitall.ui.admin.HomePageAdmin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -45,8 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding1;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
-//    ProgressDialog progressDialog;
-    AlertDialog.Builder alertDialog;
+
+
+    LottieAnimationView lottieAnimationView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,15 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding1.getRoot());
         firebaseAuth= FirebaseAuth.getInstance();
         firebaseDatabase= FirebaseDatabase.getInstance();
-//        progressDialog= new ProgressDialog(LoginActivity.this);
-//        progressDialog.setTitle("Đang tạo tài khoản");
-//        progressDialog.setMessage("setmetsage loi");
 
-
-
-
-        final ProgressBar loadingProgressBar = binding1.loading;
-
+        // Chuyển hướng đến SignUp
         binding1.signUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,33 +50,43 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
+        // Xử lí sự kiện đăng nhập
         binding1.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = binding1.userEmail.getText().toString().trim();
                 String password = binding1.password.getText().toString().trim();
-
+                if (password.isEmpty()  ||  email.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                binding1.btnLogin.setVisibility(View.GONE);
+                showProgressBar();
                 firebaseAuth.signInWithEmailAndPassword(binding1.userEmail.getText().toString(),binding1.password.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
-
                                 if(task.isSuccessful()){
                                     if (email.equals("admin@gmail.com") && password.equals("congphu01")) {
                                         // Chuyển hướng đến home_page_ad
-                                        Intent intent = new Intent(LoginActivity.this, home_page_ad.class);
+                                        hander();
+                                        Intent intent = new Intent(LoginActivity.this, HomePageAdmin.class);
                                         startActivity(intent);
                                         finish();
                                     }else{
-                                        Intent intent= new Intent(LoginActivity.this,MainActivity.class);
+                                        // Chuyển hướng đến Main
+                                        hander();
+                                        Intent intent= new Intent(LoginActivity.this, HomePage.class);
                                         startActivity(intent);
                                         finish();
                                     }
                                 }
                                 else {
-                                    Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                    // Trả về lỗi
+                                    Toast.makeText(LoginActivity.this, "Thông tin tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
+                                    hideProgressBar();
+                                    binding1.btnLogin.setVisibility(View.VISIBLE);
                                 }
                             }
                         });
@@ -105,5 +94,28 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-}
+
+
+    }
+
+    private void hander() {
+        new Handler().postDelayed(() -> {
+            // Ẩn Lottie Animation sau khi xử lý xong
+            hideProgressBar();
+            binding1.btnLogin.setVisibility(View.VISIBLE);
+            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+        }, 2000);
+    }
+
+    private void showProgressBar() {
+        binding1.animationView.setVisibility(View.VISIBLE);
+        binding1.animationView.playAnimation();
+
+    }
+
+    private void hideProgressBar() {
+        binding1.animationView.cancelAnimation();
+        binding1.animationView.setVisibility(View.GONE);
+    }
+
 }

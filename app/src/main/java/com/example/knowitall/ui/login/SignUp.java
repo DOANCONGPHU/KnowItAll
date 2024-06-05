@@ -30,6 +30,7 @@ public class SignUp extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,38 +51,60 @@ public class SignUp extends AppCompatActivity {
         firebaseDatabase= FirebaseDatabase.getInstance();
         progressDialog= new ProgressDialog(SignUp.this);
         progressDialog.setTitle("Đang tạo tài khoản");
-        progressDialog.setMessage("Vui long doi");
+        progressDialog.setMessage("Vui lòng đợi");
 
         binding.btnSingup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String password = binding.password.getText().toString();
+                String confirmPassword = binding.confirmPass.getText().toString();
+                String userEmail= binding.userEmail.getText().toString();
+                String userName= binding.userName.getText().toString();
+
+                String msg="Email không hợp lệ";
+                if (password.isEmpty() || confirmPassword.isEmpty() || userName.isEmpty() || userEmail.isEmpty()) {
+                    Toast.makeText(SignUp.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!(LoginViewModel.isUserNameValid(userEmail))) {
+                    msg="Tên không hợp lệ";
+
+                }
+                if (!password.equals(confirmPassword)) {
+                    msg="Mật khẩu không khớp";
+                }
+                if (!(LoginViewModel.isPasswordValid(password))) {
+                    msg="Mật khẩu phải nhiều hơn 5 kí tự";
+                }
+
                 progressDialog.show();
-                firebaseAuth.createUserWithEmailAndPassword(binding.userEmail.getText().toString(),binding.password.getText().toString())
+                String finalMsg = msg;
+                firebaseAuth.createUserWithEmailAndPassword(userEmail, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
 
-                                if(task.isSuccessful()){
-                                    HashMap<String, String> map= new HashMap<>();
-                                    map.put("userName",binding.userName.getText().toString());
-                                    map.put("userEmail",binding.userEmail.getText().toString());
-                                    map.put("password",binding.password.getText().toString());
-                                    String id= task.getResult().getUser().getUid();
+                                if (task.isSuccessful()) {
+                                    HashMap<String, String> map = new HashMap<>();
+                                    map.put("userName", userName);
+                                    map.put("userEmail", userEmail);
+                                    map.put("password", password);
+                                    String id = task.getResult().getUser().getUid();
 
                                     firebaseDatabase.getReference().child("user").child(id).setValue(map);
 
-                                    Intent intent = new Intent(SignUp.this,LoginActivity.class);
+                                    Intent intent = new Intent(SignUp.this, LoginActivity.class);
                                     startActivity(intent);
 
-
-                                }
-                                else {
-                                    Toast.makeText(SignUp.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(SignUp.this, finalMsg, Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
+
             }
         });
+
     }
 }

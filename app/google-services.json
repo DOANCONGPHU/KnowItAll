@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "725592645188",
-    "project_id": "knowitall-admin",
-    "storage_bucket": "knowitall-admin.appspot.com"
+    "project_number": "687585195873",
+    "project_id": "knowitall-7ae11",
+    "storage_bucket": "knowitall-7ae11.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:725592645188:android:dd24b654a1296f83ffe611",
+        "mobilesdk_app_id": "1:687585195873:android:7d6c44b53f3aeeb6b33720",
         "android_client_info": {
           "package_name": "com.example.knowitall"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCPJgXjZcDYI_8qewWvX1_LtPA9-GgSo-4"
+          "current_key": "AIzaSyDZx5Fp3oAOe9nc1oIf2alsuGz_6m0xsP4"
         }
       ],
       "services": {
