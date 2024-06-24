@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_test">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/round_txtview_hncg"
+            android:fontFamily="@font/bropella"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            android:text="Hồ Sơ"
+            android:textSize="20sp"
+            android:gravity="center"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/logo2_app"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            tools:layout_editor_absoluteX="157dp"
+            tools:layout_editor_absoluteY="73dp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="408dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="276dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <LinearLayout
+            android:layout_width="403dp"
+            android:layout_height="287dp"
+            android:background='@drawable/round_linear_prj'
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="4dp"
+            tools:layout_editor_absoluteY="315dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_marginLeft="120dp"
+                android:fontFamily="@font/bropella"
+                android:text="Chỉnh sửa hồ sơ"
+                android:textColor="#FF0000" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/bropella"
+                android:text="Thay đổi ảnh đại diện"
+                android:textColor="#FF0000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bropella"
+                    android:text="Tên người dùng"
+                    android:textColor="#FF0000" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bropella"
+                    android:text="..."
+                    android:textColor="#FF0000" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        tools:ignore="MissingConstraints">
+
+        <include
+            layout="@layout/navigation_bottom_bar"/>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
