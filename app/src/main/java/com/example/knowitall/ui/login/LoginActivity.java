@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if(task.isSuccessful()){
-                                    if (email.equals("admin@gmail.com") && password.equals("congphu01")) {
+                                    if (email.equals("admin@gmail.com") && password.equals("admin001")) {
                                         // Chuyển hướng đến home_page_ad
                                         hander();
                                         Intent intent = new Intent(LoginActivity.this, HomePageAdmin.class);
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                                     }else{
                                         // Chuyển hướng đến Main
                                         hander();
-                                        Intent intent= new Intent(LoginActivity.this, HomePage.class);
+                                        Intent intent= new Intent(LoginActivity.this,HomePage.class);
                                         startActivity(intent);
                                         finish();
                                     }
