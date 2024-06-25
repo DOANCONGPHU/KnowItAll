@@ -63,19 +63,18 @@
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/radius_btn_test"
         android:backgroundTint="@color/white"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="5dp">
 
             <Button
@@ -85,11 +84,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10sp"
-                android:textColor="@color/pink"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/pink"
+                android:textSize="10sp" />
+
             <Button
                 android:id="@+id/btnc2"
                 android:layout_width="60dp"
@@ -97,11 +97,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc3"
                 android:layout_width="60dp"
@@ -109,11 +110,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc4"
                 android:layout_width="60dp"
@@ -121,11 +123,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc5"
                 android:layout_width="60dp"
@@ -133,11 +136,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc6"
                 android:layout_width="60dp"
@@ -145,11 +149,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
 
         </TableRow>
 
@@ -157,8 +161,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="5dp">
 
             <Button
@@ -168,11 +172,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc8"
                 android:layout_width="60dp"
@@ -180,11 +185,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc9"
                 android:layout_width="60dp"
@@ -192,11 +198,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc10"
                 android:layout_width="60dp"
@@ -204,11 +211,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc11"
                 android:layout_width="60dp"
@@ -216,11 +224,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc12"
                 android:layout_width="60dp"
@@ -228,11 +237,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
 
         </TableRow>
 
@@ -240,8 +249,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="5dp">
 
             <Button
@@ -251,11 +260,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc14"
                 android:layout_width="60dp"
@@ -263,11 +273,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc15"
                 android:layout_width="60dp"
@@ -275,11 +286,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc16"
                 android:layout_width="60dp"
@@ -287,11 +299,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc17"
                 android:layout_width="60dp"
@@ -299,11 +312,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc18"
                 android:layout_width="60dp"
@@ -311,11 +325,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
 
         </TableRow>
 
@@ -323,8 +337,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="5dp">
 
             <Button
@@ -334,11 +348,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc20"
                 android:layout_width="60dp"
@@ -346,11 +361,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc21"
                 android:layout_width="60dp"
@@ -358,11 +374,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc22"
                 android:layout_width="60dp"
@@ -370,11 +387,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc23"
                 android:layout_width="60dp"
@@ -382,11 +400,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc24"
                 android:layout_width="60dp"
@@ -394,19 +413,20 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="5dp">
 
             <Button
@@ -416,11 +436,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc26"
                 android:layout_width="60dp"
@@ -428,11 +449,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc27"
                 android:layout_width="60dp"
@@ -440,11 +462,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc28"
                 android:layout_width="60dp"
@@ -452,11 +475,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc29"
                 android:layout_width="60dp"
@@ -464,11 +488,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/btnc30"
                 android:layout_width="60dp"
@@ -476,11 +501,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="1:A"
-                android:textSize="10dp"
-                android:textColor="@color/white"
                 android:background="@drawable/radius_btn_test"
-                android:backgroundTint="@color/pink_q"/>
+                android:backgroundTint="@color/pink_q"
+                android:text="1:A"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
 
         </TableRow>
     </TableLayout>
