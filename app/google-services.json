@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "687585195873",
+    "firebase_url": "https://knowitall-7ae11-default-rtdb.firebaseio.com",
     "project_id": "knowitall-7ae11",
     "storage_bucket": "knowitall-7ae11.appspot.com"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.example.knowitall"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "687585195873-8tapo9nv81sqcnkv2ao89uq30nkcpgmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDZx5Fp3oAOe9nc1oIf2alsuGz_6m0xsP4"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687585195873-8tapo9nv81sqcnkv2ao89uq30nkcpgmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

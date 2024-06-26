@@ -108,4 +108,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="default_web_client_id">687585195873-8tapo9nv81sqcnkv2ao89uq30nkcpgmm.apps.googleusercontent.com</string>
 </resources>
