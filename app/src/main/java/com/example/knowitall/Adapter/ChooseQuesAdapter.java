@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import com.example.knowitall.R;
 import com.example.knowitall.ui.admin.QuestionAd;
 import com.example.knowitall.ui.home.Question;
+import com.example.knowitall.ui.home.StartTest;
 
 public class ChooseQuesAdapter extends BaseAdapter {
     public int sets=0;
@@ -71,7 +72,7 @@ public class ChooseQuesAdapter extends BaseAdapter {
         final int currentPosition = position;
         convertView.setOnClickListener(v -> {
 
-                Intent intent = new Intent(parent.getContext(), Question.class);
+                Intent intent = new Intent(parent.getContext(), StartTest.class);
                 intent.putExtra("setNum", position);
                 intent.putExtra("topicName", topic);
                 parent.getContext().startActivity(intent);

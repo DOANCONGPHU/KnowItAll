@@ -13,6 +13,12 @@
         android:theme="@style/Theme.KnowItAll"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.EndActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.StartTest"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.Question"
             android:exported="false" />
         <activity android:name=".ui.home.ChooseQuestion" />
