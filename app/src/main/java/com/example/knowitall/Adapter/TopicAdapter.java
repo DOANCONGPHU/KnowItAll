@@ -1,7 +1,5 @@
 package com.example.knowitall.Adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.LayoutInflaterFactory;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.knowitall.R;
 import com.example.knowitall.data.model.TopicModel;
 import com.example.knowitall.databinding.ItemTopicBinding;
 import com.example.knowitall.ui.admin.SetActivity;
+import com.example.knowitall.ui.home.ChooseQuestion;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -23,10 +21,12 @@ import java.util.ArrayList;
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.viewHolder> {
     Context context;
     ArrayList<TopicModel> list;
+    private boolean isAdminMode;
 
-    public TopicAdapter(Context context, ArrayList<TopicModel> list) {
+    public TopicAdapter(Context context, ArrayList<TopicModel> list,boolean isAdminMode) {
         this.context = context;
         this.list = list;
+        this.isAdminMode = isAdminMode;
     }
 
     @NonNull
@@ -49,13 +49,17 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.viewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(context, SetActivity.class);
-                intent.putExtra("topic",model.getTopicName());
-                intent.putExtra("sets",model.getSetNum());
-                intent.putExtra("key",model.getKey());
+                Intent intent;
+                if (isAdminMode) {
+                    intent = new Intent(context, SetActivity.class);
+                } else {
+                    intent = new Intent(context, ChooseQuestion.class);
+                }
+                intent.putExtra("topic", model.getTopicName());
+                intent.putExtra("sets", model.getSetNum());
+                intent.putExtra("key", model.getKey());
 
                 context.startActivity(intent);
-
             }
         });
     }

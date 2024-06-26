@@ -97,7 +97,7 @@ public class HomePageAdmin extends AppCompatActivity {
         // set layout
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.recyclerTopic.setLayoutManager(layoutManager);
-        adapter = new TopicAdapter(this,list);
+        adapter = new TopicAdapter(this,list,true);
         binding.recyclerTopic.setAdapter(adapter);
         // lấy dữ liệu từ firebase
         database.getReference().child("topics").addValueEventListener(new ValueEventListener() {

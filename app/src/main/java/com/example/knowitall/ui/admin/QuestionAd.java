@@ -8,13 +8,9 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.knowitall.Adapter.QuestionAdapter;
-import com.example.knowitall.R;
 import com.example.knowitall.data.model.QuestionModel;
 import com.example.knowitall.databinding.ActivityQuestionBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Question extends AppCompatActivity {
+public class QuestionAd extends AppCompatActivity {
     ActivityQuestionBinding binding;
     FirebaseDatabase db ;
     ArrayList<QuestionModel> questionLists;
@@ -68,14 +64,14 @@ public class Question extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Question.this, "Câu hỏi không tồn tại", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuestionAd.this, "Câu hỏi không tồn tại", Toast.LENGTH_SHORT).show();
             }
         });
         //add question
         binding.addQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Question.this, AddQuestion.class);
+                Intent intent = new Intent(QuestionAd.this, AddQuestion.class);
                 intent.putExtra("setNum", setNum);
                 intent.putExtra("topic", topicName);
                 startActivity(intent);

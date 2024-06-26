@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.knowitall.ui.admin.HomePageAdmin;
+import com.example.knowitall.ui.home.HomePage;
 import com.example.knowitall.ui.login.LoginActivity;
 
 public class Splash extends AppCompatActivity {

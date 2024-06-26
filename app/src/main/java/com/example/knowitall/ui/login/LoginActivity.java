@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.knowitall.HomePage;
+import com.example.knowitall.ui.home.HomePage;
 import com.example.knowitall.databinding.ActivityLoginBinding;
 import com.example.knowitall.ui.admin.HomePageAdmin;
 import com.google.android.gms.tasks.OnCompleteListener;
